@@ -3,6 +3,7 @@ package com.destroytoday.object
 	import org.flexunit.assertThat;
 	import org.hamcrest.core.not;
 	import org.hamcrest.object.equalTo;
+	import org.hamcrest.object.nullValue;
 	
 	public class ObjectMapTest
 	{
@@ -60,7 +61,7 @@ package com.destroytoday.object
 			map.mapValue(key, value);
 			map.unmapValue(key);
 			
-			assertThat(map[key], not(true));
+			assertThat(map[key], nullValue());
 		}
 
 		[Test]
