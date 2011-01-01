@@ -1,0 +1,11 @@
+# hidden files
+.DS_Store
+.actionScriptProperties
+.flexLibProperties
+.git
+.project
+.settings
+.FlexUnitSettings
+bin
+src/FlexUnitApplication-app.xml
+src/FlexUnitApplication.mxml
