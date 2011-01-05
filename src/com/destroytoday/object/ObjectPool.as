@@ -3,7 +3,7 @@ package com.destroytoday.object
 	import flash.utils.getDefinitionByName;
 	import flash.utils.getQualifiedClassName;
 
-	public class ObjectPool 
+	public class ObjectPool implements IObjectPool
 	{
 		//--------------------------------------------------------------------------
 		//
