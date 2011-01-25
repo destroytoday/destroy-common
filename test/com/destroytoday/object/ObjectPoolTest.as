@@ -4,19 +4,11 @@ package com.destroytoday.object
 	import com.destroytoday.support.TestPoolObject;
 	import com.destroytoday.support.TestTimerPool;
 	
-	import flash.events.Event;
 	import flash.utils.Timer;
 	
-	import mockolate.nice;
-	import mockolate.prepare;
-	import mockolate.received;
-	
-	import org.flexunit.async.Async;
 	import org.hamcrest.assertThat;
 	import org.hamcrest.core.isA;
-	import org.hamcrest.core.not;
 	import org.hamcrest.object.equalTo;
-	import org.hamcrest.object.strictlyEqualTo;
 
 	public class ObjectPoolTest
 	{		
@@ -122,7 +114,7 @@ package com.destroytoday.object
 			
 			pool.disposeObject(object);
 			
-			assertThat(pool.getObject(), strictlyEqualTo(object));
+			assertThat(pool.getObject(), equalTo(object));
 		}
 		
 		[Test]

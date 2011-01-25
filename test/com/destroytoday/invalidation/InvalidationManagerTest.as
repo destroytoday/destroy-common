@@ -50,24 +50,6 @@ package com.destroytoday.invalidation
 		
 		//--------------------------------------------------------------------------
 		//
-		//  Helper Methods
-		//
-		//--------------------------------------------------------------------------
-		
-		protected function delayCall(callback:Function, delay:Number):void
-		{
-			var timer:Timer = new Timer(50.0, 1);
-			
-			Async.handleEvent(this, timer, TimerEvent.TIMER_COMPLETE, function(event:TimerEvent, object:Object):void
-			{
-				callback();
-			});
-			
-			timer.start();
-		}
-		
-		//--------------------------------------------------------------------------
-		//
 		//  Tests
 		//
 		//--------------------------------------------------------------------------
@@ -88,7 +70,7 @@ package com.destroytoday.invalidation
 			
 			manager.invalidateObject(new TestInvalidatingObject());
 			
-			delayCall(function():void
+			Async.delayCall(this, function():void
 			{
 				assertThat(manager, received().method('validate').once());
 			}, 500);
@@ -104,7 +86,7 @@ package com.destroytoday.invalidation
 			manager.invalidateObject(new TestInvalidatingObject());
 			manager.validate();
 			
-			delayCall(function():void
+			Async.delayCall(this, function():void
 			{
 				assertThat(manager, received().method('validate').once());
 			}, 500);

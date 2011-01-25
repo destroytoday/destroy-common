@@ -9,7 +9,6 @@ package com.destroytoday.async
 	import org.hamcrest.assertThat;
 	import org.hamcrest.core.isA;
 	import org.hamcrest.object.equalTo;
-	import org.hamcrest.object.strictlyEqualTo;
 
 	public class PromiseTest
 	{		
@@ -224,7 +223,7 @@ package com.destroytoday.async
 			
 			promise.dispatchResult(result);
 			
-			assertThat(promise.result, strictlyEqualTo(result));
+			assertThat(promise.result, equalTo(result));
 		}
 		
 		[Test]
@@ -234,7 +233,7 @@ package com.destroytoday.async
 			
 			promise.dispatchError(error);
 			
-			assertThat(promise.error, strictlyEqualTo(error));
+			assertThat(promise.error, equalTo(error));
 		}
 		
 		[Test]
