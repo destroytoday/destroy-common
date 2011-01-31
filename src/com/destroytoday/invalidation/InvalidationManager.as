@@ -49,7 +49,7 @@ package com.destroytoday.invalidation
 		
 		public function invalidateObject(object:IInvalidatable):IInvalidatable
 		{
-			if (!hasObject(object))
+			if (invalidatingObjectList.indexOf(object) == -1)
 			{
 				invalidatingObjectList[invalidatingObjectList.length] = object;
 				

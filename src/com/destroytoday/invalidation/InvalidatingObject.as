@@ -23,13 +23,18 @@ package com.destroytoday.invalidation
 		
 		//--------------------------------------------------------------------------
 		//
-		//  Getter / Setters
+		//  Getters / Setters
 		//
 		//--------------------------------------------------------------------------
 		
 		public function get invalidationManager():IInvalidationManager
 		{
 			return _invalidationManager;
+		}
+		
+		public function set invalidationManager(value:IInvalidationManager):void
+		{
+			_invalidationManager = value;
 		}
 		
 		//--------------------------------------------------------------------------
@@ -40,7 +45,7 @@ package com.destroytoday.invalidation
 		
 		public function invalidate():void
 		{
-			_invalidationManager.invalidateObject(this);
+			invalidationManager.invalidateObject(this);
 		}
 		
 		public function validate():void
