@@ -2,7 +2,10 @@ package
 {
 	import com.destroytoday.DestroyCommonSuite;
 	
+	import flash.desktop.NativeApplication;
 	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.events.UncaughtErrorEvent;
 	
 	import org.flexunit.internals.TraceListener;
 	import org.flexunit.listeners.CIListener;
@@ -22,6 +25,13 @@ package
             core.addListener(new XMLListener());
 			
             core.run(DestroyCommonSuite);
+			
+			core.addEventListener(FlexUnitCore.TESTS_COMPLETE, completeHandler);
+		}
+		
+		protected function completeHandler(event:Event):void
+		{
+			NativeApplication.nativeApplication.exit();
 		}
 	}
 }

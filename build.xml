@@ -42,6 +42,7 @@
         </mxmlc>
 
 		<flexunit 
+			player="air"
             swf="${bin.loc}/${ant.project.name}-test.swf" 
 			toDir="${report.loc}"
             haltonfailure="true" 

@@ -7,5 +7,6 @@
 .settings
 .FlexUnitSettings
 bin/*.swf
+bin/*.xml
 bin-debug
 report
