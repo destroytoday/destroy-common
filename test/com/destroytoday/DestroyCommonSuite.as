@@ -2,11 +2,11 @@ package com.destroytoday
 {
 	import com.destroytoday.async.PromiseTest;
 	import com.destroytoday.data.ArrayListTest;
+	import com.destroytoday.display.MeasuredSpriteTest;
 	import com.destroytoday.invalidation.InvalidatingSpriteTest;
 	import com.destroytoday.invalidation.InvalidationManagerTest;
 	import com.destroytoday.object.ObjectMapTest;
 	import com.destroytoday.object.ObjectPoolTest;
-	import com.destroytoday.view.ViewObjectTest;
 	
 	[Suite]
 	[RunWith("org.flexunit.runners.Suite")]
@@ -22,6 +22,6 @@ package com.destroytoday
 		
 		public var arrayListTest:ArrayListTest;
 		
-		public var viewObject:ViewObjectTest;
+		public var measuredSprite:MeasuredSpriteTest;
 	}
 }

@@ -7,7 +7,6 @@ package com.destroytoday.object
 	import flash.utils.Timer;
 	
 	import org.hamcrest.assertThat;
-	import org.hamcrest.core.isA;
 	import org.hamcrest.object.equalTo;
 
 	public class ObjectPoolTest
@@ -72,7 +71,7 @@ package com.destroytoday.object
 		{
 			pool = new ObjectPool(TestPoolObject);
 			
-			assertThat(pool.getObject(), isA(TestPoolObject));
+			assertThat(pool.getObject() is TestPoolObject);
 		}
 		
 		[Test]
@@ -147,7 +146,7 @@ package com.destroytoday.object
 		{
 			pool = new TestTimerPool();
 			
-			assertThat(pool.getObject(), isA(Timer));
+			assertThat(pool.getObject() is Timer);
 		}
 		
 		[Test]

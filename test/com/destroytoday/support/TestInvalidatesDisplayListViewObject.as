@@ -1,8 +1,8 @@
 package com.destroytoday.support
 {
-	import com.destroytoday.view.ViewObject;
+	import com.destroytoday.display.MeasuredSprite;
 	
-	public class TestInvalidatesDisplayListViewObject extends ViewObject
+	public class TestInvalidatesDisplayListViewObject extends MeasuredSprite
 	{
 		public var hasInvalidatedDisplayList:Boolean;
 		

@@ -1,8 +1,8 @@
-package com.destroytoday.view
+package com.destroytoday.display
 {
 	import com.destroytoday.invalidation.InvalidatingSprite;
 	
-	public class ViewObject extends InvalidatingSprite
+	public class MeasuredSprite extends InvalidatingSprite
 	{
 		//--------------------------------------------------------------------------
 		//
@@ -20,7 +20,7 @@ package com.destroytoday.view
 		//
 		//--------------------------------------------------------------------------
 		
-		public function ViewObject()
+		public function MeasuredSprite()
 		{
 		}
 		

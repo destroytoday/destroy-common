@@ -1,4 +1,4 @@
-package com.destroytoday.view
+package com.destroytoday.display
 {
 	import com.destroytoday.invalidation.InvalidatingSprite;
 	import com.destroytoday.support.TestInvalidatesDisplayListViewObject;
@@ -6,10 +6,9 @@ package com.destroytoday.view
 	import flash.display.Graphics;
 	
 	import org.hamcrest.assertThat;
-	import org.hamcrest.core.isA;
 	import org.hamcrest.object.equalTo;
 
-	public class ViewObjectTest
+	public class MeasuredSpriteTest
 	{		
 		//--------------------------------------------------------------------------
 		//
@@ -17,7 +16,7 @@ package com.destroytoday.view
 		//
 		//--------------------------------------------------------------------------
 		
-		protected var view:ViewObject;
+		protected var view:MeasuredSprite;
 		
 		//--------------------------------------------------------------------------
 		//
@@ -28,7 +27,7 @@ package com.destroytoday.view
 		[Before]
 		public function setUp():void
 		{
-			view = new ViewObject();
+			view = new MeasuredSprite();
 		}
 		
 		[After]
@@ -46,7 +45,7 @@ package com.destroytoday.view
 		[Test]
 		public function view_is_invalidation_sprite():void
 		{
-			assertThat(view, isA(InvalidatingSprite));
+			assertThat(view is InvalidatingSprite);
 		}
 		
 		//--------------------------------------

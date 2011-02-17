@@ -3,11 +3,7 @@ package com.destroytoday.invalidation
 	import com.destroytoday.support.TestInvalidatingObject;
 	import com.destroytoday.support.TestOrderingInvalidatingObject;
 	
-	import flash.display.Shape;
 	import flash.events.Event;
-	import flash.events.TimerEvent;
-	import flash.utils.Timer;
-	import flash.utils.setTimeout;
 	
 	import mockolate.mock;
 	import mockolate.nice;
@@ -16,7 +12,6 @@ package com.destroytoday.invalidation
 	
 	import org.flexunit.async.Async;
 	import org.hamcrest.assertThat;
-	import org.hamcrest.core.isA;
 	import org.hamcrest.core.not;
 	import org.hamcrest.object.equalTo;
 
@@ -59,7 +54,7 @@ package com.destroytoday.invalidation
 		{
 			manager = new InvalidationManager();
 			
-			assertThat(manager, isA(IInvalidationManager));
+			assertThat(manager is IInvalidationManager);
 		}
 		
 		[Test(async, timeout=1000)]

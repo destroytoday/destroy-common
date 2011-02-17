@@ -7,7 +7,6 @@ package com.destroytoday.async
 	import com.destroytoday.support.TestRemovedAllListenersSignal;
 	
 	import org.hamcrest.assertThat;
-	import org.hamcrest.core.isA;
 	import org.hamcrest.object.equalTo;
 
 	public class PromiseTest
@@ -47,7 +46,7 @@ package com.destroytoday.async
 		[Test]
 		public function promise_implements_promise_interface():void
 		{
-			assertThat(promise, isA(IPromise));
+			assertThat(promise is IPromise);
 		}
 		
 		[Test]

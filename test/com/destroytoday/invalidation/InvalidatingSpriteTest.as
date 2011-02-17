@@ -2,28 +2,16 @@ package com.destroytoday.invalidation
 {
 	import com.destroytoday.support.TestDirtyDisplayListInvalidatingObject;
 	import com.destroytoday.support.TestDirtyPropertyListInvalidatingObject;
-	import com.destroytoday.support.TestUpdatingDisplayListSprite;
-	import com.destroytoday.support.TestUpdatingPropertyListSprite;
 	
-	import flash.desktop.NativeApplication;
 	import flash.display.NativeWindow;
 	import flash.display.NativeWindowInitOptions;
-	import flash.display.Sprite;
 	import flash.display.Stage;
 	import flash.events.Event;
 	
-	import mockolate.mock;
-	import mockolate.nice;
 	import mockolate.prepare;
-	import mockolate.received;
-	import mockolate.strict;
-	import mockolate.stub;
-	import mockolate.verify;
 	
 	import org.flexunit.async.Async;
 	import org.hamcrest.assertThat;
-	import org.hamcrest.core.allOf;
-	import org.hamcrest.core.not;
 
 	public class InvalidatingSpriteTest
 	{		
