@@ -1,10 +1,10 @@
 package com.destroytoday.data
 {
-	import org.osflash.signals.Signal;
+	import org.osflash.signals.ISignal;
 
 	public interface IDataList
 	{
-		function get changed():Signal;
+		function get changed():ISignal;
 		
 		function get numItems():int;
 		

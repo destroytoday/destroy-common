@@ -1,5 +1,6 @@
 package com.destroytoday.data
 {
+	import org.osflash.signals.ISignal;
 	import org.osflash.signals.Signal;
 	
 	public class ArrayList implements IDataList
@@ -10,16 +11,16 @@ package com.destroytoday.data
 		//
 		//--------------------------------------------------------------------------
 		
-		protected var _changed:Signal;
+		protected var _changed:Signal = new Signal();
 		
-		public function get changed():Signal
+		public function get changed():ISignal
 		{
-			return _changed ||= new Signal();
+			return _changed;
 		}
 		
-		public function set changed(value:Signal):void
+		public function set changed(value:ISignal):void
 		{
-			_changed = value;
+			_changed = value as Signal;
 		}
 		
 		//--------------------------------------------------------------------------
