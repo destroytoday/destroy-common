@@ -1,6 +1,6 @@
 package com.destroytoday.async
 {
-	public class PromiseStatus
+	public class PromiseStatus implements IPromiseStatus
 	{
 		//--------------------------------------------------------------------------
 		//

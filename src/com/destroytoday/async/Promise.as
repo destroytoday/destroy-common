@@ -2,6 +2,7 @@ package com.destroytoday.async
 {
 	import com.destroytoday.object.IDisposable;
 	
+	import org.osflash.signals.ISignal;
 	import org.osflash.signals.Signal;
 
 	public class Promise implements IPromise, IDisposable
@@ -20,44 +21,44 @@ package com.destroytoday.async
 		
 		protected var _statusChanged:Signal;
 		
-		public function get completed():Signal
+		public function get completed():ISignal
 		{
 			return _completed ||= new Signal(IPromise);
 		}
 		
-		public function set completed(value:Signal):void
+		public function set completed(value:ISignal):void
 		{
-			_completed = value;
+			_completed = value as Signal;
 		}
 		
-		public function get failed():Signal
+		public function get failed():ISignal
 		{
 			return _failed ||= new Signal(IPromise);
 		}
 		
-		public function set failed(value:Signal):void
+		public function set failed(value:ISignal):void
 		{
-			_failed = value;
+			_failed = value as Signal;
 		}
 		
-		public function get progressChanged():Signal
+		public function get progressChanged():ISignal
 		{
 			return _progressChanged ||= new Signal(IPromise);
 		}
 		
-		public function set progressChanged(value:Signal):void
+		public function set progressChanged(value:ISignal):void
 		{
-			_progressChanged = value;
+			_progressChanged = value as Signal;
 		}
 
-		public function get statusChanged():Signal
+		public function get statusChanged():ISignal
 		{
 			return _statusChanged ||= new Signal(IPromise);
 		}
 		
-		public function set statusChanged(value:Signal):void
+		public function set statusChanged(value:ISignal):void
 		{
-			_statusChanged = value;
+			_statusChanged = value as Signal;
 		}
 		
 		//--------------------------------------------------------------------------
@@ -68,7 +69,7 @@ package com.destroytoday.async
 		
 		protected var _resultProcessorList:Vector.<Function>;
 		
-		protected var _status:PromiseStatus = PromiseStatus.PENDING;
+		protected var _status:IPromiseStatus = PromiseStatus.PENDING;
 		
 		protected var _result:*;
 		
@@ -97,7 +98,7 @@ package com.destroytoday.async
 			return _resultProcessorList ||= new Vector.<Function>();
 		}
 		
-		protected function setStatus(value:PromiseStatus):void
+		protected function setStatus(value:IPromiseStatus):void
 		{
 			if (value == _status) return;
 			
@@ -107,7 +108,7 @@ package com.destroytoday.async
 				_statusChanged.dispatch(this);
 		}
 		
-		public function get status():PromiseStatus
+		public function get status():IPromiseStatus
 		{
 			return _status;
 		}

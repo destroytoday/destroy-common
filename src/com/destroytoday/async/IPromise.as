@@ -1,19 +1,18 @@
 package com.destroytoday.async
 {
 	import org.osflash.signals.ISignal;
-	import org.osflash.signals.Signal;
 
 	public interface IPromise
 	{
-		function get completed():Signal;
-		function get failed():Signal;
-		function get progressChanged():Signal;
-		function get statusChanged():Signal;
+		function get completed():ISignal;
+		function get failed():ISignal;
+		function get progressChanged():ISignal;
+		function get statusChanged():ISignal;
 		
 		function get result():*;
 		function get error():*;
 		function get progress():*;
-		function get status():PromiseStatus;
+		function get status():IPromiseStatus;
 		
 		function dispatchResult(value:*):void;
 		function dispatchError(value:*):void;
