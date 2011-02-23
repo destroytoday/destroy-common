@@ -9,6 +9,7 @@ package com.destroytoday
 	import com.destroytoday.invalidation.InvalidatingSpriteTest;
 	import com.destroytoday.invalidation.InvalidationManagerTest;
 	import com.destroytoday.net.StringLoaderTest;
+	import com.destroytoday.net.XMLLoaderTest;
 	import com.destroytoday.object.ObjectMapTest;
 	import com.destroytoday.object.ObjectPoolTest;
 	
@@ -33,5 +34,6 @@ package com.destroytoday
 		public var measuredSprite:MeasuredSpriteTest;
 		
 		public var stringLoaderTest:StringLoaderTest;
+		public var xmlLoaderTest:XMLLoaderTest;
 	}
 }

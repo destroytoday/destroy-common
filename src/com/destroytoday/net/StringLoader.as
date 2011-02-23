@@ -152,11 +152,11 @@ package com.destroytoday.net
 		
 		protected function setupListeners():void
 		{
-			loader.addEventListener(Event.COMPLETE, loaderCompleteHandler);
-			loader.addEventListener(ProgressEvent.PROGRESS, loaderProgressHandler);
-			loader.addEventListener(HTTPStatusEvent.HTTP_RESPONSE_STATUS, loaderResponseStatusHandler);
-			loader.addEventListener(IOErrorEvent.IO_ERROR, loaderIOErrorHandler);
-			loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, loaderSecurityErrorHandler);
+			loader.addEventListener(Event.COMPLETE, loader_completeHandler);
+			loader.addEventListener(ProgressEvent.PROGRESS, loader_progressHandler);
+			loader.addEventListener(HTTPStatusEvent.HTTP_RESPONSE_STATUS, loader_responseStatusHandler);
+			loader.addEventListener(IOErrorEvent.IO_ERROR, loader_ioErrorHandler);
+			loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, loader_securityErrorHandler);
 		}
 		
 		protected function parseResult(data:*):*
@@ -253,27 +253,27 @@ package com.destroytoday.net
 		//
 		//--------------------------------------------------------------------------
 		
-		protected function loaderCompleteHandler(event:Event):void
+		protected function loader_completeHandler(event:Event):void
 		{
 			dispatchResult(responseCode, parseResult(loader.data));
 		}
 		
-		protected function loaderProgressHandler(event:ProgressEvent):void
+		protected function loader_progressHandler(event:ProgressEvent):void
 		{
 			dispatchProgress(event.bytesLoaded, event.bytesTotal);
 		}
 		
-		protected function loaderResponseStatusHandler(event:HTTPStatusEvent):void
+		protected function loader_responseStatusHandler(event:HTTPStatusEvent):void
 		{
 			responseCode = event.status;
 		}
 		
-		protected function loaderIOErrorHandler(event:IOErrorEvent):void
+		protected function loader_ioErrorHandler(event:IOErrorEvent):void
 		{
 			dispatchError(event.errorID, responseCode, event.text);
 		}
 		
-		protected function loaderSecurityErrorHandler(event:SecurityErrorEvent):void
+		protected function loader_securityErrorHandler(event:SecurityErrorEvent):void
 		{
 			dispatchError(event.errorID, responseCode, event.text);
 		}
