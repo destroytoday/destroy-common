@@ -1,7 +1,6 @@
-package com.destroytoday.error
+package com.destroytoday.net
 {
-
-	public class LoadError extends LocalError
+	public class LoadResult
 	{
 		//--------------------------------------------------------------------------
 		//
@@ -10,18 +9,19 @@ package com.destroytoday.error
 		//--------------------------------------------------------------------------
 		
 		protected var _code:int;
-
+		
+		protected var _data:*;
+		
 		//--------------------------------------------------------------------------
 		//
 		//  Constructor
 		//
 		//--------------------------------------------------------------------------
 		
-		public function LoadError(id:int, code:int, description:String)
+		public function LoadResult(code:int, data:*)
 		{
 			_code = code;
-			
-			super(id, description);
+			_data = data;
 		}
 		
 		//--------------------------------------------------------------------------
@@ -35,15 +35,9 @@ package com.destroytoday.error
 			return _code;
 		}
 		
-		//--------------------------------------------------------------------------
-		//
-		//  Public Methods
-		//
-		//--------------------------------------------------------------------------
-		
-		override public function toString():String
+		public function get data():*
 		{
-			return _id + " " + _code + " " + _description;
+			return _data;
 		}
 	}
 }

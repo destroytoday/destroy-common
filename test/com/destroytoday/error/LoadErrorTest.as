@@ -3,6 +3,7 @@ package com.destroytoday.error
 	
 	import org.hamcrest.assertThat;
 	import org.hamcrest.object.equalTo;
+	import com.destroytoday.net.LoadError;
 
 	public class LoadErrorTest
 	{		
