@@ -20,11 +20,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-package com.destroytoday.object
+package com.destroytoday.graphics
 {
-	public interface IObjectPool
+	import flash.display.DisplayObject;
+
+	public interface IDecorator
 	{
-		function getObject():*;
-		function disposeObject(object:Object):void;
+		function get target():IDecoratable;
+		function set target(value:IDecoratable):void;
+		
+		function draw():void;
 	}
 }
