@@ -20,12 +20,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-package com.destroytoday.display
+package com.destroytoday.invalidation
 {
-	import com.destroytoday.invalidation.InvalidatingSprite;
-	import com.destroytoday.invalidation.InvalidationFlag;
-	
-	public class MeasuredSprite extends InvalidatingSprite
+	public class InvalidationFlag
 	{
 		//--------------------------------------------------------------------------
 		//
@@ -33,11 +30,9 @@ package com.destroytoday.display
 		//
 		//--------------------------------------------------------------------------
 		
-		protected var _explicitWidth:Number;
+		public var name:String;
 		
-		protected var _explicitHeight:Number;
-		
-		protected var sizeFlag:InvalidationFlag = new InvalidationFlag('size');
+		public var isRaised:Boolean;
 		
 		//--------------------------------------------------------------------------
 		//
@@ -45,54 +40,20 @@ package com.destroytoday.display
 		//
 		//--------------------------------------------------------------------------
 		
-		public function MeasuredSprite()
+		public function InvalidationFlag(name:String)
 		{
+			this.name = name;
 		}
 		
 		//--------------------------------------------------------------------------
 		//
-		//  Getters / Setters
+		//  Public Methods
 		//
 		//--------------------------------------------------------------------------
 		
-		override public function get width():Number
+		public function toString():String
 		{
-			return !isNaN(_explicitWidth) ? _explicitWidth : super.width;
-		}
-		
-		override public function set width(value:Number):void
-		{
-			if (value == _explicitWidth)
-				return;
-			
-			super.width = _explicitWidth = value;
-			
-			flagManager.invalidate(sizeFlag);
-		}
-		
-		public function get measuredWidth():Number
-		{
-			return super.width;
-		}
-		
-		override public function get height():Number
-		{
-			return !isNaN(_explicitHeight) ? _explicitHeight : super.height;
-		}
-		
-		override public function set height(value:Number):void
-		{
-			if (value == _explicitHeight)
-				return;
-			
-			super.height = _explicitHeight = value;
-			
-			flagManager.invalidate(sizeFlag);
-		}
-		
-		public function get measuredHeight():Number
-		{
-			return super.height;
+			return name;
 		}
 	}
 }

@@ -7,6 +7,7 @@ package com.destroytoday
 	import com.destroytoday.error.LoadErrorTest;
 	import com.destroytoday.error.LocalErrorTest;
 	import com.destroytoday.invalidation.InvalidatingSpriteTest;
+	import com.destroytoday.invalidation.InvalidationFlagManagerTest;
 	import com.destroytoday.invalidation.InvalidationManagerTest;
 	import com.destroytoday.net.StringLoaderTest;
 	import com.destroytoday.net.XMLLoaderTest;
@@ -21,6 +22,7 @@ package com.destroytoday
 		
 		public var invalidationManagerTest:InvalidationManagerTest;
 		public var invalidatingSpriteTest:InvalidatingSpriteTest;
+		public var invalidationFlagManagerTest:InvalidationFlagManagerTest;
 		
 		public var objectMapTest:ObjectMapTest;
 		public var objectPoolTest:ObjectPoolTest;
