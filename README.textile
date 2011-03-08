@@ -17,7 +17,28 @@ protected function setup():void
 {
 	flagManager = new InvalidationFlagManager(this);
 
+	flagManager.mapMethod(drawBackground, sizeFlag);	
 	flagManager.mapMethod(drawBackground, dataFlag);
+}
+
+public function set width(value:Number):void
+{
+	if (value == _width)
+		return;
+
+	_width = value;
+
+	flagManager.invalidate(sizeFlag);
+}
+
+public function set height(value:Number):void
+{
+	if (value == _height)
+		return;
+
+	_height = value;
+
+	flagManager.invalidate(sizeFlag);
 }
 
 public function set data(value:Array):void
