@@ -17,7 +17,7 @@ protected function setup():void
 {
 	flagManager = new InvalidationFlagManager(this);
 
-	flagManager.mapMethod(drawBackground, sizeFlag, dataFlag);	
+	flagManager.mapMethod(drawBackground, sizeFlag, colorFlag);	
 }
 
 public function set width(value:Number):void
@@ -47,7 +47,7 @@ public function set color(value:uint):void
 
 	_color = value;
 
-	flagManager.invalidate(dataFlag);
+	flagManager.invalidate(colorFlag);
 }
 
 protected function drawBackground():void
