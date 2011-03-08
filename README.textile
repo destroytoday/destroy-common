@@ -17,8 +17,7 @@ protected function setup():void
 {
 	flagManager = new InvalidationFlagManager(this);
 
-	flagManager.mapMethod(drawBackground, sizeFlag);	
-	flagManager.mapMethod(drawBackground, dataFlag);
+	flagManager.mapMethod(drawBackground, sizeFlag, dataFlag);	
 }
 
 public function set width(value:Number):void
@@ -41,12 +40,12 @@ public function set height(value:Number):void
 	flagManager.invalidate(sizeFlag);
 }
 
-public function set data(value:Array):void
+public function set color(value:uint):void
 {
-	if (value == _data)
+	if (value == _color)
 		return;
 
-	_data = value;
+	_color = value;
 
 	flagManager.invalidate(dataFlag);
 }
