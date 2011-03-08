@@ -24,6 +24,9 @@ package com.destroytoday.invalidation
 {
 	public interface IInvalidationFlagManager
 	{
+		function get target():IInvalidatable;
+		function set target(value:IInvalidatable):void;
+		
 		function mapMethod(method:Function, ...flagList:Array):void;
 		function hasMethodMapping(method:Function, flag:InvalidationFlag):Boolean;
 		function unmapAllMethodMappings():void;
