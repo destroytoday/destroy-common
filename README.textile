@@ -1,0 +1,37 @@
+h1. DestroyCommon
+
+h2. Overview
+
+This is a common library for AS3 development.
+
+h2. Invalidation
+
+h3. Using flags
+
+With the InvalidationFlagManager, you can map methods to property flags and let the manager auto-call the methods.
+
+<pre>
+protected var flagManager:IInvalidationFlagManager;
+
+protected function setup():void
+{
+	flagManager = new InvalidationFlagManager(this);
+
+	flagManager.mapMethod(drawBackground, dataFlag);
+}
+
+public function set data(value:Array):void
+{
+	if (value == _data)
+		return;
+
+	_data = value;
+
+	flagManager.invalidate(dataFlag);
+}
+
+protected function drawBackground():void
+{
+	// draw background
+}
+</pre>
