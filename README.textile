@@ -12,6 +12,8 @@ With the InvalidationFlagManager, you can map methods to property flags and let 
 
 <pre>
 protected var flagManager:IInvalidationFlagManager;
+protected var sizeFlag:InvalidationFlag = new InvalidationFlag('size');
+protected var colorFlag:InvalidationFlag = new InvalidationFlag('color');
 
 protected function setup():void
 {
