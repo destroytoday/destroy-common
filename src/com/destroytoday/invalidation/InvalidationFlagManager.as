@@ -107,7 +107,8 @@ package com.destroytoday.invalidation
 				if (flagList.indexOf(flag) == -1)
 					flagList[flagList.length] = flag;
 				
-				_methodFlagList[_methodFlagList.length] = flag;
+				if (_methodFlagList.indexOf(flag) == -1)
+					_methodFlagList[_methodFlagList.length] = flag;
 			}
 		}
 		
