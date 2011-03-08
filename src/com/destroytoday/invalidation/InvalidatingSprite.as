@@ -29,15 +29,13 @@ package com.destroytoday.invalidation
 	{
 		//--------------------------------------------------------------------------
 		//
-		//  Flags
+		//  Properties
 		//
 		//--------------------------------------------------------------------------
 		
+		protected var _flagManager:IInvalidationFlagManager;
+		
 		protected var isInvalidating:Boolean;
-		
-		protected var isPropertyListDirty:Boolean;
-		
-		protected var isDisplayListDirty:Boolean;
 		
 		//--------------------------------------------------------------------------
 		//
@@ -49,6 +47,17 @@ package com.destroytoday.invalidation
 		{
 			addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
 			addEventListener(Event.REMOVED_FROM_STAGE, removedFromStageHandler);
+		}
+		
+		//--------------------------------------------------------------------------
+		//
+		//  Getters / Setters
+		//
+		//--------------------------------------------------------------------------
+
+		protected function get flagManager():IInvalidationFlagManager
+		{
+			return _flagManager ||= new InvalidationFlagManager(this);
 		}
 		
 		//--------------------------------------------------------------------------
@@ -81,20 +90,6 @@ package com.destroytoday.invalidation
 		//
 		//--------------------------------------------------------------------------
 		
-		public function invalidatePropertyList():void
-		{
-			isPropertyListDirty = true;
-			
-			invalidate();
-		}
-		
-		public function invalidateDisplayList():void
-		{
-			isDisplayListDirty = true;
-			
-			invalidate();
-		}
-		
 		public function invalidate():void
 		{
 			if (stage && !isInvalidating)
@@ -104,36 +99,7 @@ package com.destroytoday.invalidation
 		public function validate():void
 		{
 			stopInvalidating();
-			
-			if (isPropertyListDirty)
-			{
-				isPropertyListDirty = false;
-				
-				updatePropertyList();
-			}
-			
-			if (isDisplayListDirty)
-			{
-				isDisplayListDirty = false;
-				
-				updateDisplayList();
-			}
-		}
-		
-		//--------------------------------------------------------------------------
-		//
-		//  Invalidation
-		//
-		//--------------------------------------------------------------------------
-		
-		protected function updatePropertyList():void
-		{
-			
-		}
-		
-		protected function updateDisplayList():void
-		{
-			
+			flagManager.validate();
 		}
 		
 		//--------------------------------------------------------------------------
@@ -144,13 +110,13 @@ package com.destroytoday.invalidation
 		
 		protected function addedToStageHandler(event:Event):void
 		{
-			if (isPropertyListDirty || isDisplayListDirty)
-				invalidate();
+			invalidate();
 		}
 		
 		protected function removedFromStageHandler(event:Event):void
 		{
-			stopInvalidating();
+			if (isInvalidating)
+				stopInvalidating();
 		}
 		
 		protected function invalidateHandler(event:Event):void

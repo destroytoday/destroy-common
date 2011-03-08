@@ -1,7 +1,7 @@
 package com.destroytoday.display
 {
 	import com.destroytoday.invalidation.InvalidatingSprite;
-	import com.destroytoday.support.TestInvalidatesDisplayListViewObject;
+	import com.destroytoday.support.TestInvalidatesMeasuredSprite;
 	
 	import flash.display.Graphics;
 	
@@ -76,11 +76,11 @@ package com.destroytoday.display
 		[Test]
 		public function setting_width_invalidates_display_list():void
 		{
-			var view:TestInvalidatesDisplayListViewObject = new TestInvalidatesDisplayListViewObject();
+			var view:TestInvalidatesMeasuredSprite = new TestInvalidatesMeasuredSprite();
 			
 			view.width = 100.0;
 			
-			assertThat(view.hasInvalidatedDisplayList);
+			assertThat(view.hasInvalidated);
 		}
 		
 		//--------------------------------------
@@ -111,11 +111,11 @@ package com.destroytoday.display
 		[Test]
 		public function setting_height_invalidates_display_list():void
 		{
-			var view:TestInvalidatesDisplayListViewObject = new TestInvalidatesDisplayListViewObject();
+			var view:TestInvalidatesMeasuredSprite = new TestInvalidatesMeasuredSprite();
 			
 			view.height = 100.0;
 			
-			assertThat(view.hasInvalidatedDisplayList);
+			assertThat(view.hasInvalidated);
 		}
 		
 		//--------------------------------------
