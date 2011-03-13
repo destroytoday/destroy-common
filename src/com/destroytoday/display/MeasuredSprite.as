@@ -65,7 +65,7 @@ package com.destroytoday.display
 			if (value == _explicitWidth)
 				return;
 			
-			super.width = _explicitWidth = value;
+			_explicitWidth = value;
 			
 			flagManager.invalidate(sizeFlag);
 		}
@@ -85,7 +85,7 @@ package com.destroytoday.display
 			if (value == _explicitHeight)
 				return;
 			
-			super.height = _explicitHeight = value;
+			_explicitHeight = value;
 			
 			flagManager.invalidate(sizeFlag);
 		}

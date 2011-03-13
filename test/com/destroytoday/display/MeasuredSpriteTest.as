@@ -143,9 +143,15 @@ package com.destroytoday.display
 		[Test]
 		public function measured_width_returns_width_of_contents_when_explicit_width_is_set():void
 		{
+			var graphics:Graphics = view.graphics;
+			const lineWidth:Number = 100.0;
+			
+			graphics.lineStyle(0.0, 0xFF0099);
+			graphics.lineTo(lineWidth, 0.0);
+			
 			view.width = 200.0;
 			
-			assertThat(view.measuredWidth, equalTo(0.0));
+			assertThat(view.measuredWidth, equalTo(lineWidth));
 		}
 		
 		//--------------------------------------
@@ -173,9 +179,15 @@ package com.destroytoday.display
 		[Test]
 		public function measured_height_returns_height_of_contents_when_explicit_height_is_set():void
 		{
+			var graphics:Graphics = view.graphics;
+			const lineHeight:Number = 100.0;
+			
+			graphics.lineStyle(0.0, 0xFF0099);
+			graphics.lineTo(0.0, lineHeight);
+			
 			view.height = 200.0;
 			
-			assertThat(view.measuredHeight, equalTo(0.0));
+			assertThat(view.measuredHeight, equalTo(lineHeight));
 		}
 	}
 }
