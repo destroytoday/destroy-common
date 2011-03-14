@@ -26,6 +26,8 @@ package com.destroytoday.graphics
 
 	public interface IDecoratable
 	{
+		function get width():Number;
+		function get height():Number;
 		function get graphics():Graphics;
 	}
 }
