@@ -22,13 +22,13 @@ THE SOFTWARE.
 
 package com.destroytoday.graphics
 {
-	import flash.display.DisplayObject;
+	import flash.geom.Rectangle;
 
 	public interface IDecorator
 	{
 		function get target():IDecoratable;
 		function set target(value:IDecoratable):void;
 		
-		function draw():void;
+		function draw(frame:Rectangle):void;
 	}
 }
